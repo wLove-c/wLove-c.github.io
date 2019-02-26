@@ -18,49 +18,38 @@
                           </div>
                     <% } %>
                 </div>
-                <div class="col s5 right-align">
-                    <% if (page.categories && page.categories.length > 0) { %>
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        <% page.categories.forEach(category => { %>
-                            <a href="<%- url_for(category.path) %>" class="post-category" target="_blank">
-                                <%- category.name %>
-                            </a>
-                        <% }); %>
-                    </div>
-                    <% } %>
-                </div>
+                <div class="post-info">
+                                <div class="post-date info-break-policy">
+                                    <i class="fa fa-calendar-minus-o fa-fw"></i><%- __('publishDate') %>:&nbsp;&nbsp;
+                                    <%- date(page.date, 'YYYY-MM-DD') %>
+                                </div>
+
+                                <% if (theme.wordCount.enable) { %>
+                                    <% if (theme.wordCount.postWordCount) { %>
+                                    <div class="info-break-policy">
+                                        <i class="fa fa-file-word-o fa-fw"></i><%- __('wordCount') %>:&nbsp;&nbsp;
+                                        <%= wordcount(page.content) %>
+                                    </div>
+                                    <% } %>
+
+                                    <% if (theme.wordCount.min2read) { %>
+                                    <div class="info-break-policy">
+                                        <i class="fa fa-clock-o fa-fw"></i><%- __('readTimes') %>:&nbsp;&nbsp;
+                                        <%= min2read(page.content) %> <%= __('Minutes') %>
+                                    </div>
+                                    <% } %>
+                                <% } %>
+
+                								<% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
+                														<div id="busuanzi_container_page_pv" class="info-break-policy">
+                																<i class="fa fa-eye fa-fw"></i><%- __('readCount') %>:&nbsp;&nbsp;
+                																<span id="busuanzi_value_page_pv"></span>
+                														</div>
+                								<% } %>
+                            </div>
             </div>
 
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i><%- __('publishDate') %>:&nbsp;&nbsp;
-                    <%- date(page.date, 'YYYY-MM-DD') %>
-                </div>
 
-                <% if (theme.wordCount.enable) { %>
-                    <% if (theme.wordCount.postWordCount) { %>
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i><%- __('wordCount') %>:&nbsp;&nbsp;
-                        <%= wordcount(page.content) %>
-                    </div>
-                    <% } %>
-
-                    <% if (theme.wordCount.min2read) { %>
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i><%- __('readTimes') %>:&nbsp;&nbsp;
-                        <%= min2read(page.content) %> <%= __('Minutes') %>
-                    </div>
-                    <% } %>
-                <% } %>
-				
-				<% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i><%- __('readCount') %>:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				<% } %>
-            </div>
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">

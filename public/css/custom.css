@@ -4,11 +4,11 @@
 	margin-top: 30px;
 }
 
-ul#article-lists {
+ul #article-lists {
 	padding-left: 0;
 }
 
-ul#article-lists .card {
+ul #article-lists .card {
 	border-radius: 0;
 	box-shadow: none;
 	margin: 0;
