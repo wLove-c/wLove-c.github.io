@@ -1,0 +1,84 @@
+<style type="text/css">
+    /* don't remove. */
+    .about-cover {
+        height: 60vh;
+    }
+</style>
+
+<%- partial('_partial/about-cover') %>
+
+<main class="content">
+
+    <div id="aboutme" class="container about-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
+                        <%- partial('_partial/post-statis') %>
+                    </div>
+                    <div class="col s12 m12 l4">
+                        <div class="profile center-align">
+                            <div class="avatar">
+                                <img src="<%- theme.profile.avatar %>" alt="<%- config.author %>"
+                                     class="circle responsive-img avatar-img" style="border-radius:80px">
+                            </div>
+                            <div class="author">
+                                <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
+                                    <%- partial('_partial/post-statis') %>
+                                </div>
+                                <div class="title titlecolor"><%- config.authorName %></div>
+                                <div class="career"><%- theme.profile.career %></div>
+                                <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
+                                    <%- partial('_partial/social-link') %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-link">
+                         <a href="https://github.com/wLove-c" class="tooltipped" target="_blank" data-tooltip="GitHub" data-position="top" data-delay="50">
+                                        <i class="fa fa-github fa-lg"></i>
+                                    </a>
+                                    <a href="mailto:wLove_c@163.com" class="tooltipped" target="_blank" data-tooltip="邮件call我" data-position="top" data-delay="50">
+                                        <i class="fa fa-envelope fa-lg"></i>
+                                    </a>
+                                    <a href="https://blog.csdn.net/weixin_40755688" class="tooltipped" target="_blank" data-tooltip="CSDN" data-position="top" data-delay="50">
+                                        <i class="fa fa-lg fa-lg">博</i>
+                                    </a>
+                                    <a href="https://www.jianshu.com/u/486396b2fbdf" class="tooltipped" target="_blank" data-tooltip="简书主页" data-position="top" data-delay="50">
+                                        <i class="fa fa-lg">简</i>
+                                    </a>
+                                    <a href="https://juejin.im/user/5a3b55205188251fbd33cac0" class="tooltipped" target="_blank" data-tooltip="掘金主页" data-position="top" data-delay="50">
+                                        <i class="fa fa-lg">掘</i>
+                                    </a>
+                        </div>
+                </div>
+
+                <div class="introduction left-align" data-aos="fade-up">
+                <%= theme.profile.introduction %>
+                <p>1:精通html、css的页面布局，能根据设计图完成页面制作;</p>
+                <p>2:精通ajax,使用ajax进行数据交互、异步操作；</p>
+                <p>3:熟练掌握HTML5和CSS3新特性，熟悉百分比布局，rem布局，媒体查询，flex弹性膜盒布局；</p>
+                <p>4:熟练掌握Swiper，fullpage，iScroll，lazyload等；</p>
+                <p>5:熟练掌握sass、webpack，等前端开发工具；</p>
+                <p>6:熟悉nodejs，express框架，了解mongoDB，mongoose使用；</p>
+                <p>7:了解requirejs及其模块化开发；</p>
+                </div>
+
+                <%- partial('_widget/post-charts') %>
+
+                <% if (theme.myProjects && theme.myProjects.enable) { %>
+                <%- partial('_widget/my-projects') %>
+                <% } %>
+
+                <% if (theme.mySkills && theme.mySkills.enable) { %>
+                <%- partial('_widget/my-skills') %>
+                <% } %>
+
+                <% if (theme.myGallery && theme.myGallery.enable) { %>
+                <%- partial('_widget/my-gallery') %>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+</main>
