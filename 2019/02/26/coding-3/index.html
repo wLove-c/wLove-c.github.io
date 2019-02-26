@@ -4,9 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo 的介绍和使用, 安静Eno">
-    <meta name="description" content="欢迎来到 Hexo! 这是我的第一个发布. 通过观看 hexo文档 获取更多信息. 如果你在使用hexo的过程中遇到什么问题, 你可以从这里找到一些答案 问题解决 或者你也可以在github寻求帮助 GitHub.
-Quick StartC">
+    <meta name="keywords" content="vue前端代码规范, 安静Eno">
+    <meta name="description" content="使用vue的这两年中，除了部分公司有比较好的代码规范外，也形成了一套自己的编程习惯；持续更新
+            一、JavaScript命名规范1､命名统一使用语义化的驼峰命名法，能表达出该命名的用义例：主页的头部命名组件为heade">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@ Quick StartC">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>hexo 的介绍和使用 | 安静Eno</title>
+    <title>vue前端代码规范 | 安静Eno</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -189,13 +189,13 @@ Quick StartC">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        hexo 的介绍和使用
+                        vue前端代码规范
                     </div>
                 </div>
             </div>
@@ -312,19 +312,8 @@ Quick StartC">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>欢迎来到 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! 这是我的第一个发布. 通过观看 <a href="https://hexo.io/docs/" target="_blank" rel="noopener">hexo文档</a> 获取更多信息. 如果你在使用hexo的过程中遇到什么问题, 你可以从这里找到一些答案 <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">问题解决</a> 或者你也可以在github寻求帮助 <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post-（创建新文章）"><a href="#Create-a-new-post-（创建新文章）" class="headerlink" title="Create a new post （创建新文章）"></a>Create a new post （创建新文章）</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server-（运行）"><a href="#Run-server-（运行）" class="headerlink" title="Run server （运行）"></a>Run server （运行）</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files-（生成静态文件）"><a href="#Generate-static-files-（生成静态文件）" class="headerlink" title="Generate static files （生成静态文件）"></a>Generate static files （生成静态文件）</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites-（部署到远程站点）"><a href="#Deploy-to-remote-sites-（部署到远程站点）" class="headerlink" title="Deploy to remote sites （部署到远程站点）"></a>Deploy to remote sites （部署到远程站点）</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <p>使用vue的这两年中，除了部分公司有比较好的代码规范外，也形成了一套自己的编程习惯；<br>持续更新</p>
+<section class="post-content"><br>            <p><strong>一、JavaScript命名规范</strong></p><br><br><pre><code>1､命名统一使用语义化的驼峰命名法，能表达出该命名的用义<br></code></pre><br><br><p>例：主页的头部命名组件为header,列表详情下抽出的用户头部，应以userHeader命名，不能叫header </p><br><br><p><strong>二、CSS命名规范</strong></p><br><br><pre><code>1.命名统一使用语义化的驼峰命名法，对于过长的双或多英文单词组成的命名， 使用“-”链接，实在太长的，取每个单词的前3字母 + “-”链接（不绝对取前3 字母，根据语义取字母）。<br>2.设置相同属性的，使用面向属性命名方法，如：都是设置字体相关属性的，以该属性命名<br>     .fs {<br>            font: italic bold 12px/24px “Microsoft YaHei”;<br>    }<br>3.共用，又设置了不同属性的。以public的pub开头 + 语义化名称，如：页面 有多个店铺icon图标，有共同的和不同的样式，共同（重用）的样式命名方法为：<br>      .pub-shopIcon {<br>                   width:12px;<br>                   height:12px;<br>                   float:left;<br>                   position:relative;<br>                   left:0;<br>                   top:0;<br>               }<br></code></pre><br><br><p><strong>三、 Vue 目录结构</strong></p><br><br><p>1.assets用来放置样式、静态图片，只要src下面的组件中用到的资源就放在assets中。 <br><br>2.static用来放没有npm包的第三方插件，字体文件。 <br><br>3.assets与components同级 components下的.vue引用静态文件时，相对路径为 ../assets/wapFront <br><br><code><br>├── README.md              // 用到的插件和其他项目注意点在这里标明<br>├── build<br>│   ├── build.js<br>│   ├── check-versions.js<br>│   ├── logo.png<br>│   ├── utils.js<br>│   ├── vue-loader.conf.js<br>│   ├── webpack.base.conf.js<br>│   ├── webpack.dev.conf.js<br>│   └── webpack.prod.conf.js<br>├── config<br>│   ├── dev.env.js<br>│   ├── index.js<br>│   └── prod.env.js<br>├── index.html<br>├── package.json<br>├── src<br>│   ├── App.vue<br>│   ├── api               // 抽出的axios 接口请求配置<br>│   ├── assets            //  图片和公用样式<br>│   ├── components        //  公用组件<br>│   ├── directives        //  vue 指令<br>│   ├── filters           //  vue过滤器<br>│   ├── main.js<br>│   ├── router            //  路由<br>│   ├── store<br>│   ├── utils             // 工具<br>│   └── views             // 业务页面<br>└── static                // 没有npm包的第三方插件<br></code></p><br>        </section>
 
             </div>
             <hr>
@@ -465,7 +454,7 @@ Quick StartC">
                     </span>
                     <a href="http://wLove_c.github.io" class="b-link-green">安静Eno</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/02/26/hello-world/" class="b-link-green">hexo 的介绍和使用</a>
+                    <a href="/2019/02/26/coding-3/" class="b-link-green">vue前端代码规范</a>
                 </p>
             </div>
         </div>
@@ -747,7 +736,8 @@ Quick StartC">
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/02/26/coding-3/">
                     <div class="card-image">
@@ -762,9 +752,9 @@ Quick StartC">
                     <div class="summary">使用vue的这两年中，除了部分公司有比较好的代码规范外，也形成了一套自己的编程习惯；持续更新
             一、JavaScript命名规范1､命名统一使用语义化的驼峰命名法，能表达出该命名的用义例：主页的头部命名组件为heade</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -773,6 +763,7 @@ Quick StartC">
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -783,46 +774,29 @@ Quick StartC">
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/02/26/coding-1/">
+                <a href="/2019/02/26/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="CSS垂直居中的几种方法">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="hexo 的介绍和使用">
                         
-                        <span class="card-title">CSS垂直居中的几种方法</span>
+                        <span class="card-title">hexo 的介绍和使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">CSS垂直居中的几种方法
-@TOC
-假设HTML如下:&lt;body>
-    &lt;div id="box">
-        &lt;div id="content">&lt;/div>
-    &lt;/div>
-&lt;/bod</div>
+                    <div class="summary">欢迎来到 Hexo! 这是我的第一个发布. 通过观看 hexo文档 获取更多信息. 如果你在使用hexo的过程中遇到什么问题, 你可以从这里找到一些答案 问题解决 或者你也可以在github寻求帮助 GitHub.
+Quick StartC</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/编程/" class="post-category" target="_blank">
-                                    编程
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            安静Eno
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CSS/" target="_blank">
-                        <span class="chip bg-color">CSS</span>
-                    </a>
-                    
                 </div>
                 
             </div>
