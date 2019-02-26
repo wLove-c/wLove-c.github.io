@@ -888,7 +888,7 @@ article .article-tags .chip {
 }
 
 #artDetail .tag-cate {
-	padding-bottom: 15px;
+	/*padding-bottom: 15px;*/
 }
 
 #artDetail a {
@@ -1681,8 +1681,8 @@ footer .copy-right {
 }
 
 #searchModal {
-	min-height: 500px;
-	width: 80%;
+	min-height: 100px;
+	width: 60%;
 }
 
 #searchModal .search-header .title {
