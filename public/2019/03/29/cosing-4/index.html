@@ -4,9 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="vue前端代码规范, 安静Eno">
-    <meta name="description" content="使用vue的这两年中，除了部分公司有比较好的代码规范外，也形成了一套自己的编程习惯；持续更新
-            一、JavaScript命名规范1､命名统一使用语义化的驼峰命名法，能表达出该命名的用义例：主页的头部命名组件为heade">
+    <meta name="keywords" content="数组方法的扩展:array.every()和array.some(), 安静Eno">
+    <meta name="description" content="从字面认知:every是每一个都，some是都有一些就~~即:
+
+every():方法用于检测数组中所有元素是否都符合指定条件，若符合返回true，否则返回false；
+some():方法用于检测数组中的元素是否有满足指定条件的，若满足返回">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vue前端代码规范 | 安静Eno</title>
+    <title>数组方法的扩展:array.every()和array.some() | 安静Eno</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -189,13 +191,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        vue前端代码规范
+                        数组方法的扩展:array.every()和array.some()
                     </div>
                 </div>
             </div>
@@ -285,15 +287,19 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/数组/" target="_blank">
+                                <span class="chip bg-color">数组</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="post-info">
                                 <div class="post-date info-break-policy">
                                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                                    2019-02-26
+                                    2019-03-29
                                 </div>
 
                                 
@@ -312,8 +318,71 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>使用vue的这两年中，除了部分公司有比较好的代码规范外，也形成了一套自己的编程习惯；<br>持续更新</p>
-<section class="post-content"><br>            <p><strong>一、JavaScript命名规范</strong></p><br><br><pre><code>1､命名统一使用语义化的驼峰命名法，能表达出该命名的用义<br></code></pre><br><br><p>例：主页的头部命名组件为header,列表详情下抽出的用户头部，应以userHeader命名，不能叫header </p><br><br><p><strong>二、CSS命名规范</strong></p><br><br><pre><code>1.命名统一使用语义化的驼峰命名法，对于过长的双或多英文单词组成的命名， 使用“-”链接，实在太长的，取每个单词的前3字母 + “-”链接（不绝对取前3 字母，根据语义取字母）。<br>2.设置相同属性的，使用面向属性命名方法，如：都是设置字体相关属性的，以该属性命名<br>     .fs {<br>            font: italic bold 12px/24px “Microsoft YaHei”;<br>    }<br>3.共用，又设置了不同属性的。以public的pub开头 + 语义化名称，如：页面 有多个店铺icon图标，有共同的和不同的样式，共同（重用）的样式命名方法为：<br>      .pub-shopIcon {<br>                   width:12px;<br>                   height:12px;<br>                   float:left;<br>                   position:relative;<br>                   left:0;<br>                   top:0;<br>               }<br></code></pre><br><br><p><strong>三、 Vue 目录结构</strong></p><br><br><p>1.assets用来放置样式、静态图片，只要src下面的组件中用到的资源就放在assets中。 <br><br>2.static用来放没有npm包的第三方插件，字体文件。 <br><br>3.assets与components同级 components下的.vue引用静态文件时，相对路径为 ../assets/wapFront <br><br><code><br>├── README.md              // 用到的插件和其他项目注意点在这里标明<br>├── build<br>│   ├── build.js<br>│   ├── check-versions.js<br>│   ├── logo.png<br>│   ├── utils.js<br>│   ├── vue-loader.conf.js<br>│   ├── webpack.base.conf.js<br>│   ├── webpack.dev.conf.js<br>│   └── webpack.prod.conf.js<br>├── config<br>│   ├── dev.env.js<br>│   ├── index.js<br>│   └── prod.env.js<br>├── index.html<br>├── package.json<br>├── src<br>│   ├── App.vue<br>│   ├── api               // 抽出的axios 接口请求配置<br>│   ├── assets            //  图片和公用样式<br>│   ├── components        //  公用组件<br>│   ├── directives        //  vue 指令<br>│   ├── filters           //  vue过滤器<br>│   ├── main.js<br>│   ├── router            //  路由<br>│   ├── store<br>│   ├── utils             // 工具<br>│   └── views             // 业务页面<br>└── static                // 没有npm包的第三方插件<br></code></p><br>        </section>
+                <p>从字面认知:every是每一个都，some是都有一些就~~<br>即:</p>
+<ol>
+<li>every():方法用于检测数组中所有元素是否都符合指定条件，若符合返回true，否则返回false；</li>
+<li>some():方法用于检测数组中的元素是否有满足指定条件的，若满足返回true，否则返回false；</li>
+</ol>
+<h2 id="every"><a href="#every" class="headerlink" title="every()"></a>every()</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// every():方法用于检测数组中所有元素是否都符合指定条件，若符合返回true，否则返回false,且程序不会继续往下执行；</span>
+array<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">,</span>array）<span class="token punctuation">{</span>
+                 <span class="token comment" spellcheck="true">// item:当前元素的值；</span>
+
+                 <span class="token comment" spellcheck="true">// index:当前元素的索引；</span>
+
+                 <span class="token comment" spellcheck="true">// array:当前元素的数组对象；</span>
+
+         <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//es6</span>
+<span class="token keyword">let</span> age <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">26</span><span class="token punctuation">]</span>
+ <span class="token comment" spellcheck="true">// 所有都满足才会返回true,否则返回false;</span>
+ <span class="token keyword">let</span> result <span class="token operator">=</span> age<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 10</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 0</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[10,20,30,40,50,22,26]</span>
+
+     <span class="token keyword">return</span> item <span class="token operator">></span> <span class="token number">22</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// es5</span>
+<span class="token comment" spellcheck="true">// let result = age.every(function(item,index,array){</span>
+<span class="token comment" spellcheck="true">//     return item > 22;</span>
+<span class="token comment" spellcheck="true">//     })</span>
+     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span>
+
+</code></pre>
+<h2 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// some():方法用于检测数组中是否有元素符合指定条件，若有符合的返回true，且程序不会继续往下执行；否则返回false；</span>
+array<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">,</span>array）<span class="token punctuation">{</span>
+                 <span class="token comment" spellcheck="true">// item:当前元素的值；</span>
+
+                 <span class="token comment" spellcheck="true">// index:当前元素的索引；</span>
+
+                 <span class="token comment" spellcheck="true">// array:当前元素的数组对象；</span>
+
+         <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子:"></a>例子:</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//es6</span>
+<span class="token keyword">let</span> age <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">26</span><span class="token punctuation">]</span>
+ <span class="token comment" spellcheck="true">// 所有都满足才会返回true,否则返回false;</span>
+ <span class="token keyword">let</span> result <span class="token operator">=</span> age<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 10 20 30</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 0 1 2</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[10,20,30,40,50,22,26]</span>
+
+
+     <span class="token keyword">return</span> item <span class="token operator">></span> <span class="token number">22</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// es5</span>
+<span class="token comment" spellcheck="true">// let result = age.some(function(item,index,array){</span>
+<span class="token comment" spellcheck="true">//     return item > 22;</span>
+<span class="token comment" spellcheck="true">//     })</span>
+     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+
+</code></pre>
 
             </div>
             <hr>
@@ -454,7 +523,7 @@
                     </span>
                     <a href="http://wLove_c.github.io" class="b-link-green">安静Eno</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/02/26/coding-3/" class="b-link-green">vue前端代码规范</a>
+                    <a href="/2019/03/29/cosing-4/" class="b-link-green">数组方法的扩展:array.every()和array.some()</a>
                 </p>
             </div>
         </div>
@@ -736,7 +805,8 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/03/29/cosing-4/">
                     <div class="card-image">
@@ -753,9 +823,9 @@
 every():方法用于检测数组中所有元素是否都符合指定条件，若符合返回true，否则返回false；
 some():方法用于检测数组中的元素是否有满足指定条件的，若满足返回</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -768,6 +838,7 @@ some():方法用于检测数组中的元素是否有满足指定条件的，若�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -786,18 +857,18 @@ some():方法用于检测数组中的元素是否有满足指定条件的，若�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/02/26/hello-world/">
+                <a href="/2019/02/26/coding-3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="hexo 的介绍和使用">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="vue前端代码规范">
                         
-                        <span class="card-title">hexo 的介绍和使用</span>
+                        <span class="card-title">vue前端代码规范</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">欢迎来到 Hexo! 这是我的第一个发布. 通过观看 hexo文档 获取更多信息. 如果你在使用hexo的过程中遇到什么问题, 你可以从这里找到一些答案 问题解决 或者你也可以在github寻求帮助 GitHub.
-Quick StartC</div>
+                    <div class="summary">使用vue的这两年中，除了部分公司有比较好的代码规范外，也形成了一套自己的编程习惯；持续更新
+            一、JavaScript命名规范1､命名统一使用语义化的驼峰命名法，能表达出该命名的用义例：主页的头部命名组件为heade</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-26
