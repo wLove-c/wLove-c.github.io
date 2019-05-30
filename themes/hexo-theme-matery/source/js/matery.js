@@ -147,6 +147,10 @@ $(function () {
     });
 });
 */
+
+
+
+/* =========================改变之后的=================== */
 $(function() {
   /**
    * 添加文章卡片hover效果.
@@ -166,8 +170,8 @@ $(function() {
    */
   let changeTagPostByTag = function(tag) {
     $('#tags .chip-active').removeClass('chip-active').addClass('chip-default');
-    $('#tags .tag-chips span[data-tagname="' + tag + '"]').removeClass('chip-default').addClass('chip-active');
-
+    $(' .tag-chips span[data-tagname="' + tag + '"]').removeClass('chip-default').addClass('chip-active');
+      $('#tags .chip-active').empty().text(tag);
     // 获取同样有该标签的帖子，并将其显示出来，其他帖子隐藏.
     $('#tags .tag-post').each(function() {
       let tagArr = $(this).attr('data-tags').split(', ');
@@ -185,9 +189,9 @@ $(function() {
   let changeTagPost = function() {
     $('#tags .chip').click(function() {
       // 如果当前标签已经激活了，则直接return.
-      if ($(this).hasClass('chip-active')) {
+      /*if ($(this).hasClass('chip-active')) {
         return;
-      }
+      }*/
 
       // 获取选中的tag名称，并切换颜色效果.
       changeTagPostByTag($(this).text());
