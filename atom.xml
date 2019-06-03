@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wLove_c.github.io/"/>
-  <updated>2019-06-03T04:05:47.611Z</updated>
+  <updated>2019-06-03T10:04:41.846Z</updated>
   <id>http://wLove_c.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac/nginx/nginx部署/代理/跨域</title>
+    <link href="http://wLove_c.github.io/2019/06/03/macnginx-20190603/"/>
+    <id>http://wLove_c.github.io/2019/06/03/macnginx-20190603/</id>
+    <published>2019-06-03T10:04:41.846Z</published>
+    <updated>2019-06-03T10:04:41.846Z</updated>
+    
+    <content type="html"><![CDATA[<p>上篇文章我们说到了nginx的一些入门功能使用，但Mac book下的nginx如何配置呢？这将是本篇文章的重点；</p><h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><ol><li><p>打开终端</p></li><li><p>安装brew命令</p></li></ol><blockquote><p>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a></p></blockquote><p>3.安装nginx</p><blockquote><p>brew install nginx</p></blockquote><ol start="4"><li>检查是否安装成功</li></ol><pre><code>nginx -v</code></pre><p>输出版本</p><blockquote><p>nginx version: nginx/1.15.6  我的是这个</p></blockquote><p>如上输出 则安装成功</p><ol start="5"><li>nginx默认下载路径</li></ol><blockquote><p>/usr/local/etc/nginx/nginx.conf （配置文件路径）<br>/usr/local/var/www （服务器默认路径）<br>/usr/local/Cellar/nginx/1.12.0 （安装路径）</p></blockquote><p>修改配置文件 推荐使用vim</p><pre><code>brew install vim // 安装</code></pre><blockquote><p>vim使用方法 转<a href="https://www.runoob.com/linux/linux-vim.html" target="_blank" rel="noopener">菜鸟教程vim/vi</a></p></blockquote><ol start="6"><li>启动nginx<br>在终端输入<br><code>`</code><br>// 启动<br>nginx</li></ol><p>// 如果报无权限 则加上管理权限启动<br>sudo nginx</p><pre><code>启动成功之后访问 localhost:8080 如果网页输出Welcome to nginx! 则启动成功7. nginx的 常用命令</code></pre><p>nginx -s quit    // 退出<br>nginx -s reload  // 重新加载<br>nginx -t         //测试nginx.conf配置</p><p><code>`</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上篇文章我们说到了nginx的一些入门功能使用，但Mac book下的nginx如何配置呢？这将是本篇文章的重点；&lt;/p&gt;
+&lt;h3 id=&quot;安装nginx&quot;&gt;&lt;a href=&quot;#安装nginx&quot; class=&quot;headerlink&quot; title=&quot;安装nginx&quot;&gt;&lt;/a&gt;
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="http://wLove_c.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="代理" scheme="http://wLove_c.github.io/tags/%E4%BB%A3%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>nginx部署/代理的基础</title>
@@ -165,6 +191,32 @@
   </entry>
   
   <entry>
+    <title>vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法</title>
+    <link href="http://wLove_c.github.io/2019/02/26/coding-2/"/>
+    <id>http://wLove_c.github.io/2019/02/26/coding-2/</id>
+    <published>2019-02-26T03:37:48.667Z</published>
+    <updated>2019-02-26T03:37:48.668Z</updated>
+    
+    <content type="html"><![CDATA[<p>vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法<br>@<a href="vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法">TOC</a></p><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p> 在深层props过程中，props的数据传到了目标文件 但却没有触发数据更新及页面更新；<br> watch代码如下：</p><pre class=" language-javascript"><code class="language-javascript">  watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>  <span class="token function">uploaConfig</span><span class="token punctuation">(</span>newVal<span class="token punctuation">,</span>oldVal<span class="token punctuation">)</span><span class="token punctuation">{</span>   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>          <span class="token keyword">this</span><span class="token punctuation">.</span>moreList <span class="token operator">=</span> newVal<span class="token punctuation">.</span>moreList          <span class="token punctuation">}</span>      <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre><p>vue-devToola数据传递结果如下<br><img src="https://img-blog.csdnimg.cn/20190131173426486.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MDc1NTY4OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="方案解决过程一"><a href="#方案解决过程一" class="headerlink" title="方案解决过程一"></a>方案解决过程一</h4><p>考虑到使用了对象传递 watch可能无法检测到深层key属性变化，代码改成如下:</p><pre class=" language-javascript"><code class="language-javascript"> watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>     <span class="token string">'uploaConfig.moreList'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>          handler <span class="token punctuation">(</span>newVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>              <span class="token keyword">this</span><span class="token punctuation">.</span>moreList <span class="token operator">=</span> newVal<span class="token punctuation">.</span>moreList              <span class="token punctuation">}</span>          <span class="token punctuation">}</span><span class="token punctuation">,</span>          deep<span class="token punctuation">:</span> <span class="token boolean">true</span>        <span class="token punctuation">}</span>      <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre><p>结果显而易见 还是不行；</p><h4 id="方案解决过程二"><a href="#方案解决过程二" class="headerlink" title="方案解决过程二"></a>方案解决过程二</h4><p>查阅: <a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">vue官方文档</a>.得知如果是想watch检测到值变化并且立刻使用则需要加上 immediate: true,</p><pre class=" language-javascript"><code class="language-javascript">watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token string">'uploaConfig.moreList'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>          handler <span class="token punctuation">(</span>newVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>              <span class="token keyword">this</span><span class="token punctuation">.</span>moreList <span class="token operator">=</span> newVal<span class="token punctuation">.</span>moreList              <span class="token punctuation">}</span>          <span class="token punctuation">}</span><span class="token punctuation">,</span>          deep<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>          immediate<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span></code></pre><p>最后博主问题终于得到解决了<br><img src="https://img-blog.csdnimg.cn/20190131175046627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MDc1NTY4OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><p>出现问题尽量先找官网 首先确定是自己没有了解到官方api的正确使用或者是一些特定解决方案，如若对您有帮助，麻烦点个赞吧~</p><h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢~"></a>感谢~</h2><p>谢谢大家 麻烦给个关注 ^ _ ^</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法&lt;br&gt;@&lt;a href=&quot;vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法&quot;&gt;TOC&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="http://wLove_c.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Vue" scheme="http://wLove_c.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSS垂直居中的几种方法</title>
     <link href="http://wLove_c.github.io/2019/02/26/coding-1/"/>
     <id>http://wLove_c.github.io/2019/02/26/coding-1/</id>
@@ -188,32 +240,6 @@
     
     
       <category term="CSS" scheme="http://wLove_c.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法</title>
-    <link href="http://wLove_c.github.io/2019/02/26/coding-2/"/>
-    <id>http://wLove_c.github.io/2019/02/26/coding-2/</id>
-    <published>2019-02-26T03:37:48.667Z</published>
-    <updated>2019-02-26T03:37:48.668Z</updated>
-    
-    <content type="html"><![CDATA[<p>vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法<br>@<a href="vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法">TOC</a></p><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p> 在深层props过程中，props的数据传到了目标文件 但却没有触发数据更新及页面更新；<br> watch代码如下：</p><pre class=" language-javascript"><code class="language-javascript">  watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>  <span class="token function">uploaConfig</span><span class="token punctuation">(</span>newVal<span class="token punctuation">,</span>oldVal<span class="token punctuation">)</span><span class="token punctuation">{</span>   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>          <span class="token keyword">this</span><span class="token punctuation">.</span>moreList <span class="token operator">=</span> newVal<span class="token punctuation">.</span>moreList          <span class="token punctuation">}</span>      <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre><p>vue-devToola数据传递结果如下<br><img src="https://img-blog.csdnimg.cn/20190131173426486.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MDc1NTY4OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="方案解决过程一"><a href="#方案解决过程一" class="headerlink" title="方案解决过程一"></a>方案解决过程一</h4><p>考虑到使用了对象传递 watch可能无法检测到深层key属性变化，代码改成如下:</p><pre class=" language-javascript"><code class="language-javascript"> watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>     <span class="token string">'uploaConfig.moreList'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>          handler <span class="token punctuation">(</span>newVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>              <span class="token keyword">this</span><span class="token punctuation">.</span>moreList <span class="token operator">=</span> newVal<span class="token punctuation">.</span>moreList              <span class="token punctuation">}</span>          <span class="token punctuation">}</span><span class="token punctuation">,</span>          deep<span class="token punctuation">:</span> <span class="token boolean">true</span>        <span class="token punctuation">}</span>      <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre><p>结果显而易见 还是不行；</p><h4 id="方案解决过程二"><a href="#方案解决过程二" class="headerlink" title="方案解决过程二"></a>方案解决过程二</h4><p>查阅: <a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">vue官方文档</a>.得知如果是想watch检测到值变化并且立刻使用则需要加上 immediate: true,</p><pre class=" language-javascript"><code class="language-javascript">watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token string">'uploaConfig.moreList'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>          handler <span class="token punctuation">(</span>newVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>uploadConfig<span class="token punctuation">.</span>moreList<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>              <span class="token keyword">this</span><span class="token punctuation">.</span>moreList <span class="token operator">=</span> newVal<span class="token punctuation">.</span>moreList              <span class="token punctuation">}</span>          <span class="token punctuation">}</span><span class="token punctuation">,</span>          deep<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>          immediate<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span></code></pre><p>最后博主问题终于得到解决了<br><img src="https://img-blog.csdnimg.cn/20190131175046627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MDc1NTY4OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><p>出现问题尽量先找官网 首先确定是自己没有了解到官方api的正确使用或者是一些特定解决方案，如若对您有帮助，麻烦点个赞吧~</p><h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢~"></a>感谢~</h2><p>谢谢大家 麻烦给个关注 ^ _ ^</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法&lt;br&gt;@&lt;a href=&quot;vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法&quot;&gt;TOC&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="http://wLove_c.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Vue" scheme="http://wLove_c.github.io/tags/Vue/"/>
     
   </entry>
   
