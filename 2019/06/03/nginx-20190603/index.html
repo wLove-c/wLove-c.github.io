@@ -4,14 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="CSS垂直居中的几种方法, 安静Eno">
-    <meta name="description" content="CSS垂直居中的几种方法
-@TOC
-假设HTML如下:&amp;lt;body&gt;
-    &amp;lt;div id=&#34;box&#34;&gt;
-        &amp;lt;div id=&#34;content&#34;&gt;&amp;lt;/div&gt;
-    &amp;lt;/div&gt;
-&amp;lt;/bod">
+    <meta name="keywords" content="nginx部署/代理的基础, 安静Eno">
+    <meta name="description" content="关于nginx,咱们先了解nginx在开发过程中的主要作用
+nginx解决跨域
+nginx负载均衡
+
+一、nginx解决跨域如果要理解什么是跨域
+
+广义上的跨域是指一个域下的文档或脚本试图去请求另一个域下的资源。即浏览器的同源策略/SOP限">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CSS垂直居中的几种方法 | 安静Eno</title>
+    <title>nginx部署/代理的基础 | 安静Eno</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -194,13 +194,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CSS垂直居中的几种方法
+                        nginx部署/代理的基础
                     </div>
                 </div>
             </div>
@@ -292,8 +292,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS/" target="_blank">
-                                <span class="chip bg-color">CSS</span>
+                            <a href="/tags/代理/" target="_blank">
+                                <span class="chip bg-color">代理</span>
                             </a>
                         
                     </div>
@@ -302,7 +302,7 @@
                 <div class="post-info">
                                 <div class="post-date info-break-policy">
                                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                                    2019-02-26
+                                    2019-06-03
                                 </div>
 
                                 
@@ -321,92 +321,157 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>CSS垂直居中的几种方法</p>
-<p>@<a href="CSS垂直居中的几种方法">TOC</a></p>
-<h3 id="假设HTML如下"><a href="#假设HTML如下" class="headerlink" title="假设HTML如下:"></a>假设HTML如下:</h3><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+                <h3 id="关于nginx-咱们先了解nginx在开发过程中的主要作用"><a href="#关于nginx-咱们先了解nginx在开发过程中的主要作用" class="headerlink" title="关于nginx,咱们先了解nginx在开发过程中的主要作用"></a>关于nginx,咱们先了解nginx在开发过程中的主要作用</h3><ul>
+<li>nginx解决跨域</li>
+<li>nginx负载均衡</li>
+</ul>
+<h3 id="一、nginx解决跨域"><a href="#一、nginx解决跨域" class="headerlink" title="一、nginx解决跨域"></a>一、nginx解决跨域</h3><p>如果要理解什么是跨域</p>
+<blockquote>
+<p>广义上的跨域是指一个域下的文档或脚本试图去请求另一个域下的资源。即浏览器的同源策略/SOP限制引起的跨域也属于在内；</p>
+</blockquote>
+<ul>
+<li>那么什么是同源策略呢？</li>
+</ul>
+<blockquote>
+<p>同源策略/SOP（Same origin policy）是一种约定，由Netscape公司1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击。同源策略即: 协议+域名+端口”三者相同</p>
+</blockquote>
+<ul>
+<li>常见的跨域场景如下：</li>
+</ul>
+<pre><code>
+URL                                      说明                    是否允许通信
 
-</code></pre>
-<h3 id="1-兼容性最好的方法-IE7以上"><a href="#1-兼容性最好的方法-IE7以上" class="headerlink" title="1. 兼容性最好的方法 IE7以上"></a>1. 兼容性最好的方法 IE7以上</h3><pre class=" language-javascript"><code class="language-javascript">body<span class="token punctuation">,</span>html <span class="token punctuation">{</span> margin<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span> width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span> height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+http://www.baidu.com/hello.js
+http://www.baidu.com/world.js         同一域名，不同文件或路径               允许（无跨域）
+http://www.baidu.com/hello/world.js
 
-#box <span class="token punctuation">{</span>
-     width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-     height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-     background<span class="token punctuation">:</span><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     position<span class="token punctuation">:</span>relative<span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
-#content <span class="token punctuation">{</span>
-    width<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    height<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    background<span class="token punctuation">:</span>pink<span class="token punctuation">;</span>
-    position<span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>
-    top<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-    right<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-    bottom<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-    left<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-    margin<span class="token punctuation">:</span>auto<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="2-transform进行元素偏移-IE8以上"><a href="#2-transform进行元素偏移-IE8以上" class="headerlink" title="2. transform进行元素偏移 IE8以上"></a>2. transform进行元素偏移 IE8以上</h3><pre class=" language-javascript"><code class="language-javascript">body<span class="token punctuation">,</span>html <span class="token punctuation">{</span> margin<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span> width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span> height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 
-#box <span class="token punctuation">{</span>
-    width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    background<span class="token punctuation">:</span><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    position<span class="token punctuation">:</span>relative<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-#content<span class="token punctuation">{</span>
-    position<span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>
-    width<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    height<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    background<span class="token punctuation">:</span>blue<span class="token punctuation">;</span>
-    left<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    top<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    transform<span class="token punctuation">:</span><span class="token function">translateX</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span> <span class="token function">translateY</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">-</span>webkit<span class="token operator">-</span>transform<span class="token punctuation">:</span><span class="token function">translateX</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span> <span class="token function">translateY</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="3-弹性盒模型进行布局-IE兼容性差"><a href="#3-弹性盒模型进行布局-IE兼容性差" class="headerlink" title="3. 弹性盒模型进行布局 IE兼容性差"></a>3. 弹性盒模型进行布局 IE兼容性差</h3><pre class=" language-javascript"><code class="language-javascript">body<span class="token punctuation">,</span>html <span class="token punctuation">{</span> margin<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span> width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span> height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+http://www.baidu.com:8000/hello.js
+http://www.baidu.com/hello.js         同一域名，不同端口                不允许（有跨域）
 
-#box <span class="token punctuation">{</span>
-    width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    background<span class="token punctuation">:</span><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    display<span class="token punctuation">:</span>box<span class="token punctuation">;</span>
-    box<span class="token operator">-</span>pack<span class="token punctuation">:</span>center<span class="token punctuation">;</span>
-    box<span class="token operator">-</span>align<span class="token punctuation">:</span>center<span class="token punctuation">;</span>
-    display<span class="token punctuation">:</span><span class="token operator">-</span>webkit<span class="token operator">-</span>flexbox<span class="token punctuation">;</span>
-    <span class="token operator">-</span>webkit<span class="token operator">-</span>box<span class="token operator">-</span>pack<span class="token punctuation">:</span>center<span class="token punctuation">;</span>
-    <span class="token operator">-</span>webkit<span class="token operator">-</span>box<span class="token operator">-</span>align<span class="token punctuation">:</span>center<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-#content <span class="token punctuation">{</span>
-    width<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    height<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    background<span class="token punctuation">:</span>blue<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="4-flex布局-不兼容IE9以下"><a href="#4-flex布局-不兼容IE9以下" class="headerlink" title="4. flex布局 不兼容IE9以下"></a>4. flex布局 不兼容IE9以下</h3><pre class=" language-javascript"><code class="language-javascript">body<span class="token punctuation">,</span>html <span class="token punctuation">{</span> margin<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span> width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span> height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+http://www.baidu.com/hello.js
+https://www.baidu.com/world.js        同一域名，不同协议                不允许（有跨域）
 
-#box <span class="token punctuation">{</span>
-    width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    background<span class="token punctuation">:</span><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    display<span class="token punctuation">:</span>flex<span class="token punctuation">;</span>
-    display<span class="token punctuation">:</span><span class="token operator">-</span>webkit<span class="token operator">-</span>flex<span class="token punctuation">;</span>
-     justify<span class="token operator">-</span>content<span class="token punctuation">:</span>center<span class="token punctuation">;</span>
-     align<span class="token operator">-</span>items<span class="token punctuation">:</span>center<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-#content <span class="token punctuation">{</span>
-    position<span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>
-    width<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    height<span class="token punctuation">:</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    background<span class="token punctuation">:</span>blue<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-</code></pre>
-<h5 id="言-以上就是博主目前用的比较多的方法啦，如果有什么更好的方法，可以多多交流喔"><a href="#言-以上就是博主目前用的比较多的方法啦，如果有什么更好的方法，可以多多交流喔" class="headerlink" title="言: 以上就是博主目前用的比较多的方法啦，如果有什么更好的方法，可以多多交流喔"></a>言: 以上就是博主目前用的比较多的方法啦，如果有什么更好的方法，可以多多交流喔</h5>
+http://www.baidu.com/hello.js
+http://192.168.22.128/world.js        域名和域名对应ip                 不允许（有跨域）
+
+http://baidu.com/hello.js
+http://x.baidu.com/hello.js           主域相同，子域不同                不允许（有跨域）
+http://www.baidu.com/hello.js
+
+http://www.baidu.com/hello.js
+http://www.bai.com/world.js           不同域名                        不允许（有跨域）
+
+</code></pre><h5 id="常见的跨域解决方案有如下"><a href="#常见的跨域解决方案有如下" class="headerlink" title="常见的跨域解决方案有如下:"></a>常见的跨域解决方案有如下:</h5><ol>
+<li>jsonp解决跨域</li>
+<li>document.domain + iframe解决跨域</li>
+<li>nginx代理解决跨域</li>
+<li>nodejs中间件代理解决跨域</li>
+</ol>
+<h3 id="重点来了-nginx代理解决跨域；"><a href="#重点来了-nginx代理解决跨域；" class="headerlink" title="重点来了 nginx代理解决跨域；"></a>重点来了 nginx代理解决跨域；</h3><pre><code>
+server {
+        listen       80;
+        server_name  localhost; //前端域名 具体原理解释在下方
+
+        location / {  // location / 代理所有请求 而如果是 location /api 则匹配到有/api 前缀的请求才会代理
+                        proxy_pass www.baidu.com; // 服务端域名
+        }
+}
+
+
+</code></pre><ol>
+<li>前端server域名是localhost</li>
+<li>服务器server域名是<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><blockquote>
+<p>根据浏览器的SOP/同源策略 localhost对<a href="http://www.baidu.com发起请求一定会出现跨域问题；但现在只要我们启动nginx服务器把server_name设置成前端的域名，" target="_blank" rel="noopener">www.baidu.com发起请求一定会出现跨域问题；但现在只要我们启动nginx服务器把server_name设置成前端的域名，</a><br>此时前端发起的请求相当于是localhost对localhost发起，这样是不会引起跨域的；但真实情况是，nginx对localhost的请求代理回 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a></p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<p>这里赘述一下什么是代理；</p>
+<blockquote>
+<p>代理是在服务器和客户端之间假设的一层服务器（中间服务器），代理将接收客户端的请求并将它转发给服务器，然后将服务端的响应转发给客户端。</p>
+</blockquote>
+<p>代理分为正向代理和反向代理:具体区别自行百度…</p>
+<hr>
+<h3 id="nginx负载均衡"><a href="#nginx负载均衡" class="headerlink" title="nginx负载均衡"></a>nginx负载均衡</h3><p>nginx是通过把请求分发到服务器列表来实现负载均衡的；具体实现如下:</p>
+<pre><code>upstream balance.com{
+             server 192.168.2.100:42000;
+             server 192.168.2.101:42000;
+             server 192.168.2.102:42000;
+}
+
+
+
+server {
+        server_name  fe.server.com;
+        listen 80;
+        location /api {
+                proxy_pass http://balance.com;
+        }
+}
+
+
+</code></pre><p>上面的配置只是指定了nginx需要转发的服务端列表，并没有指定分配策略。</p>
+<h4 id="nginx负载均衡策略"><a href="#nginx负载均衡策略" class="headerlink" title="nginx负载均衡策略"></a>nginx负载均衡策略</h4><ol>
+<li>轮询策略</li>
+</ol>
+<blockquote>
+<p>轮询策略是默认的策略，把每个请求按顺序逐一分配到不同的server，如果server挂掉，能自动剔除</p>
+</blockquote>
+<pre><code>upstream balance.com{
+                 server 192.168.2.100:42000;
+                 server 192.168.2.101:42000;
+                 server 192.168.2.102:42000;
+        }
+</code></pre><ol start="2">
+<li>最少连接数策略</li>
+</ol>
+<blockquote>
+<p>把请求优先分配给连接数最少的server,可以平衡每个队列的长度;</p>
+</blockquote>
+<pre><code>    upstream balance.com{
+                     least_conn;
+                     server 192.168.2.100:42000;
+                     server 192.168.2.101:42000;
+                     server 192.168.2.102:42000;
+        }
+</code></pre><ol start="3">
+<li>最快响应时间策略</li>
+</ol>
+<blockquote>
+<p>优先分配给响应时间最短的服务器。</p>
+</blockquote>
+<pre><code>    upstream balance.com{
+                     fair;
+                     server 192.168.2.100:42000;
+                     server 192.168.2.101:42000;
+                     server 192.168.2.102:42000;
+        }
+</code></pre><ol start="4">
+<li>权重策略<blockquote>
+<p>使用weight来指定server访问比率，weight默认是1。访问率比例等于权重比例；</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>    upstream balance.com{
+                     server 192.168.2.100:42000 weight=1;
+                     server 192.168.2.101:42000 weight=2;
+                     server 192.168.2.102:42000 weight=3;
+        }
+</code></pre><ol start="5">
+<li>客户端ip绑定 ip_hash<blockquote>
+<p>每个请求会按照访问ip的hash值分配，这样同一客户端连续的Web请求都会被分发到同一server进行处理，可以解决session的问题。如果server挂掉，能自动剔除。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>    upstream balance.com{
+                    ip_hash;
+                     server 192.168.2.100:42000 weight=1;
+                     server 192.168.2.101:42000 weight=2;
+                     server 192.168.2.102:42000 weight=3;
+        }
+</code></pre><p>以上是博主目前了解和使用到的一些技巧和知识啦，至于关于nginx部署后404问题请看@<a href="https://www.jianshu.com/p/42dcccc2f991" target="_blank" rel="noopener">vue框架下部署上线后刷新报404问题解决方案</a></p>
+
             </div>
             <hr>
 
@@ -546,7 +611,7 @@
                     </span>
                     <a href="http://wLove_c.github.io" class="b-link-green">安静Eno</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/02/26/coding-1/" class="b-link-green">CSS垂直居中的几种方法</a>
+                    <a href="/2019/06/03/nginx-20190603/" class="b-link-green">nginx部署/代理的基础</a>
                 </p>
             </div>
         </div>
@@ -828,59 +893,29 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/02/26/coding-3/">
+                <a href="/2019/06/03/nginx-20190603/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="vue前端代码规范">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="nginx部署/代理的基础">
                         
-                        <span class="card-title">vue前端代码规范</span>
+                        <span class="card-title">nginx部署/代理的基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">使用vue的这两年中，除了部分公司有比较好的代码规范外，也形成了一套自己的编程习惯；持续更新
-            一、JavaScript命名规范1､命名统一使用语义化的驼峰命名法，能表达出该命名的用义例：主页的头部命名组件为heade</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-26
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            安静Eno
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/02/26/coding-2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法">
-                        
-                        <span class="card-title">vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法@TOC
-遇到的问题 在深层props过程中，props的数据传到了目标文件 但却没有触发数据更新及页面更新； watch代码如下：
-  watch: {
- </div>
+                    <div class="summary">关于nginx,咱们先了解nginx在开发过程中的主要作用
+nginx解决跨域
+nginx负载均衡
+
+一、nginx解决跨域如果要理解什么是跨域
+
+广义上的跨域是指一个域下的文档或脚本试图去请求另一个域下的资源。即浏览器的同源策略/SOP限</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-26
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-03
                             </span>
                         <span class="publish-author">
                             
@@ -894,13 +929,48 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/代理/" target="_blank">
+                        <span class="chip bg-color">代理</span>
                     </a>
                     
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/06/03/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="hexo 的介绍和使用">
+                        
+                        <span class="card-title">hexo 的介绍和使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">欢迎来到 Hexo! 这是我的第一个发布. 通过观看 hexo文档 获取更多信息. 如果你在使用hexo的过程中遇到什么问题, 你可以从这里找到一些答案 问题解决 或者你也可以在github寻求帮助 GitHub.
+Quick StartC</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            安静Eno
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
