@@ -7,13 +7,13 @@
     <meta name="keywords" content="mac/nginx/nginx部署/代理/跨域, 安静Eno">
     <meta name="description" content="上篇文章我们说到了nginx的一些入门功能使用，但Mac book下的nginx如何配置呢？这将是本篇文章的重点；
 安装nginx
-打开终端
+打开终端Terminal
 
-安装brew命令
+安装brew
 
 
 
-ruby -e “$(curl -fsSL https://raw.gi">
+ruby -e “$(curl -fsSL https://">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -325,9 +325,9 @@ ruby -e “$(curl -fsSL https://raw.gi">
             <div id="articleContent">
                 <p>上篇文章我们说到了nginx的一些入门功能使用，但Mac book下的nginx如何配置呢？这将是本篇文章的重点；</p>
 <h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><ol>
-<li><p>打开终端</p>
+<li><p>打开终端Terminal</p>
 </li>
-<li><p>安装brew命令</p>
+<li><p>安装brew</p>
 </li>
 </ol>
 <blockquote>
@@ -343,10 +343,9 @@ ruby -e “$(curl -fsSL https://raw.gi">
 <pre><code>nginx -v
 
 </code></pre><p>输出版本</p>
-<blockquote>
-<p>nginx version: nginx/1.15.6  我的是这个</p>
-</blockquote>
-<p>如上输出 则安装成功</p>
+<pre><code>nginx version: nginx/1.15.6  //我的是这个
+
+</code></pre><p>如上输出 则安装成功</p>
 <ol start="5">
 <li>nginx默认下载路径</li>
 </ol>
@@ -360,16 +359,26 @@ ruby -e “$(curl -fsSL https://raw.gi">
 <p>vim使用方法 转<a href="https://www.runoob.com/linux/linux-vim.html" target="_blank" rel="noopener">菜鸟教程vim/vi</a></p>
 </blockquote>
 <ol start="6">
-<li>启动nginx<br>在终端输入<br><code>`</code><br>// 启动<br>nginx</li>
+<li>启动nginx</li>
 </ol>
-<p>// 如果报无权限 则加上管理权限启动<br>sudo nginx</p>
-<pre><code>
-启动成功之后访问 localhost:8080 如果网页输出Welcome to nginx! 则启动成功
+<pre><code>// 在终端输入
 
-7. nginx的 常用命令
+nginx // 启动
 
-</code></pre><p>nginx -s quit    // 退出<br>nginx -s reload  // 重新加载<br>nginx -t         //测试nginx.conf配置</p>
-<p><code>`</code></p>
+// 如果报无权限 则加上管理权限启动
+
+sudo nginx
+
+</code></pre><p>启动成功之后访问 localhost:8080 如果网页输出Welcome to nginx! 则启动成功</p>
+<ol start="7">
+<li>nginx的 常用命令</li>
+</ol>
+<pre><code>nginx -s quit    // 退出
+nginx -s reload  // 重新加载
+nginx -t         //测试nginx.conf配置
+
+</code></pre><p>关于nginx的配置 可以查看<a href="https://wlove-c.github.io/2019/06/03/nginx-20190603/" target="_blank" rel="noopener">安静Eno | nginx配置/部署/代理</a></p>
+<p>最后，如果文章对您有帮助，别忘记点赞喔，创作不易，转载请注明出处</p>
 
             </div>
             <hr>
@@ -807,13 +816,13 @@ ruby -e “$(curl -fsSL https://raw.gi">
                 <div class="card-content article-content">
                     <div class="summary">上篇文章我们说到了nginx的一些入门功能使用，但Mac book下的nginx如何配置呢？这将是本篇文章的重点；
 安装nginx
-打开终端
+打开终端Terminal
 
-安装brew命令
+安装brew
 
 
 
-ruby -e “$(curl -fsSL https://raw.gi</div>
+ruby -e “$(curl -fsSL https://</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-03
