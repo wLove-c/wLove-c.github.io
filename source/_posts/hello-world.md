@@ -7,6 +7,12 @@ title: hexo 的介绍和使用
 
 ### Create a new post （创建新文章）
 
+---
+title: hello
+---
+
+
+
 ``` bash
 $ hexo new "My New Post"
 ```
