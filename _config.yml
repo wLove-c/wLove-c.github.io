@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 安静Eno
+title: 王一诺
 subtitle: 风一样的男子
 prefix_description: ❤爱代码，❤爱前端，❤爱️文学，❤爱音乐的文艺理工男
 description: 哪有什么岁月静好，只是有人为你负重前行zzZ
-keyword: 安静Eno的博客,wLove_c,博客,前端技术,web开发,HTML,Javascript,CSS,Vue.js,React.js,Node.js,文字,生活,摄影,音乐
-author: 安静Eno
-authorName: 王小彬
+keyword: 王一诺的博客,wLove_c,博客,前端技术,web开发,HTML,Javascript,CSS,Vue.js,React.js,Node.js,文字,生活,摄影,音乐
+author: 王一诺
+authorName: 王一诺
 language: zh-CN
 email: wLove_c@163.com #联系邮箱
 timezone: Asia/Shanghai #+08:00

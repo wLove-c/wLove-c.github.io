@@ -28,13 +28,13 @@ dream:
   enable: true
   showTitle: false
   title: 登科后
-  text: 昔日龌龊不足夸， 今朝放荡思无涯。 春风得意马蹄疾， 一日看尽长安花
+  text: 前段时间赶一个项目，稳食艰难，断更严重，接下来期望能做到一周一篇，各位帮忙监督；
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
 music:
-  enable: false
-  showTitle: true
+  enable: true
+  showTitle: false
   title: 听听音乐
   fixed: false # 开启吸底模式
   autoplay: false # 是否自动播放
