@@ -1,6 +1,6 @@
 ---
 title: 数组方法的扩展:array.every()和array.some()
-tags: 数组
+tags: javaScript
 categories: 编程
 ---
 

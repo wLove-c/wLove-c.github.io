@@ -1,6 +1,6 @@
 ---
 title: 干货学习
-tags: js
+tags: javaScript
 categories: 编程
 ---
 websocket/JS的类型/S中的typeof能得到的那些类型/js中有哪些内置函数 9 种
