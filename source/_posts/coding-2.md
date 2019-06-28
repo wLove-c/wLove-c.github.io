@@ -8,8 +8,10 @@ vue中watch不触发、不生效的解决办法及原理
 
 ## 遇到的问题
 
-vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法
-@[TOC](vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法)
+vue中watch不触发、不生效的解决办法及原理
+
+
+@[TOC](vue中watch不触发、不生效的解决办法及原理)
 
 ## 遇到的问题
  在深层props过程中，props的数据传到了目标文件 但却没有触发数据更新及页面更新；
@@ -65,7 +67,7 @@ watch: {
 出现问题尽量先找官网 首先确定是自己没有了解到官方api的正确使用或者是一些特定解决方案，如若对您有帮助，麻烦点个赞吧~
 > 20190626更新 | 原文并没有解释清楚为何加上 deep: true或者 immediate: true就可以了，此次更新将加入demo
 
-##更新内容
+## 更新内容
 ### 1 常规的监听(watch)
 ```javascript
 <div class="watch-demo">
@@ -94,7 +96,7 @@ data () {
 
 * 从上图可以看出，常规的监听和我们想象中的完全一致，理想和实际完美吻合；
 
-## 对象监听
+### 2 对象监听
 ```javascript
  <div class="watch-demo-item">
       <input type="text" v-model="obj.val2">

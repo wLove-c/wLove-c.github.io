@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="vue中watch不触发、不生效的解决办法及原理, 王一诺">
     <meta name="description" content="vue中watch不触发、不生效的解决办法及原理@TOC
-遇到的问题vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法@TOC
-遇到的问题 在深层props过程中，props的数据传到了目标文件 但却没有触发">
+遇到的问题vue中watch不触发、不生效的解决办法及原理
+@TOC
+遇到的问题 在深层props过程中，props的数据传到了目标文件 但却没有触发数据更新及页面更新； watch">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -318,7 +319,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>vue中watch不触发、不生效的解决办法及原理<br>@<a href="vue中watch不触发、不生效的解决办法及原理">TOC</a></p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法<br>@<a href="vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法">TOC</a></p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>vue中watch不触发、不生效的解决办法及原理</p>
+<p>@<a href="vue中watch不触发、不生效的解决办法及原理">TOC</a></p>
 <h2 id="遇到的问题-1"><a href="#遇到的问题-1" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p> 在深层props过程中，props的数据传到了目标文件 但却没有触发数据更新及页面更新；<br> watch代码如下：</p>
 <pre class=" language-javascript"><code class="language-javascript">  watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
   <span class="token function">uploaConfig</span><span class="token punctuation">(</span>newVal<span class="token punctuation">,</span>oldVal<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -360,8 +362,7 @@
 <blockquote>
 <p>20190626更新 | 原文并没有解释清楚为何加上 deep: true或者 immediate: true就可以了，此次更新将加入demo</p>
 </blockquote>
-<p>##更新内容</p>
-<h3 id="1-常规的监听-watch"><a href="#1-常规的监听-watch" class="headerlink" title="1 常规的监听(watch)"></a>1 常规的监听(watch)</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"watch-demo"</span><span class="token operator">></span>
+<h2 id="更新内容"><a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h2><h3 id="1-常规的监听-watch"><a href="#1-常规的监听-watch" class="headerlink" title="1 常规的监听(watch)"></a>1 常规的监听(watch)</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"watch-demo"</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"watch-demo-item"</span><span class="token operator">></span>
       <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"val1"</span><span class="token operator">></span>
       <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>value1<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
@@ -386,7 +387,7 @@ data <span class="token punctuation">(</span><span class="token punctuation">)</
 <ul>
 <li>从上图可以看出，常规的监听和我们想象中的完全一致，理想和实际完美吻合；</li>
 </ul>
-<h2 id="对象监听"><a href="#对象监听" class="headerlink" title="对象监听"></a>对象监听</h2><pre class=" language-javascript"><code class="language-javascript"> <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"watch-demo-item"</span><span class="token operator">></span>
+<h3 id="2-对象监听"><a href="#2-对象监听" class="headerlink" title="2 对象监听"></a>2 对象监听</h3><pre class=" language-javascript"><code class="language-javascript"> <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"watch-demo-item"</span><span class="token operator">></span>
       <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"obj.val2"</span><span class="token operator">></span>
       <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>value2<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
@@ -911,8 +912,9 @@ data <span class="token punctuation">(</span><span class="token punctuation">)</
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">vue中watch不触发、不生效的解决办法及原理@TOC
-遇到的问题vue项目下props传进去的数据,生命周期勾子函数包括watch不触发的解决办法@TOC
-遇到的问题 在深层props过程中，props的数据传到了目标文件 但却没有触发</div>
+遇到的问题vue中watch不触发、不生效的解决办法及原理
+@TOC
+遇到的问题 在深层props过程中，props的数据传到了目标文件 但却没有触发数据更新及页面更新； watch</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-28
