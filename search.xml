@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>javascript函数防抖和函数节流~</title>
+      <link href="/2019/08/26/codding-20190825/"/>
+      <url>/2019/08/26/codding-20190825/</url>
+      
+        <content type="html"><![CDATA[<hr><p><img src="https://user-gold-cdn.xitu.io/2019/8/26/16ccb9c3667de170?w=1240&amp;h=297&amp;f=jpeg&amp;s=39707" alt="镇楼图杀生丸"></p><hr><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul><li><p>函数防抖和函数节流都是为了优化事件处理程序，</p></li><li><p><strong>防抖</strong> 一个频繁触发的函数，在规定时间内，只让最后一次生效，前面的不生效。</p></li><li><p><strong>节流</strong> 一个频繁触发的函数，在规定时间内，函数执行一次后，只有大于设定的执行周期后才会执行第二次。</p></li></ul><blockquote><p>使用场景: <strong>防抖</strong> 经常用在我们搜索框输入搜索，点击提交，防止等；而 <strong>节流</strong> 一般在onresize、mousemove、滚动事件等事件中使用，防止过多的请求造成服务器压力</p></blockquote><h3 id="函数防抖；"><a href="#函数防抖；" class="headerlink" title="函数防抖；"></a>函数防抖；</h3><ul><li>原理：在第一次调用函数的时候，创建一个定时器，在指定的时间间隔之后运行代码；如果代码还没运行时，又触发了该函数，则清除旧的定时器，重新创建新的定时器；如果超过延时执行的时间，代码执行了，则此时已经是第二次触发；</li></ul><ul><li>实现如下:<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> debounce <span class="token operator">=</span> <span class="token punctuation">(</span>method<span class="token punctuation">,</span> delay<span class="token punctuation">)</span>  <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//定时器</span>    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>        <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// method.apply(this) 看你用不用箭头函数</span>      <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span></code></pre><h3 id="函数节流；"><a href="#函数节流；" class="headerlink" title="函数节流；"></a>函数节流；</h3></li></ul><ul><li>原理：第一次执行函数的时候，记录函数执行的时间，当下一次执行的时候，比较时间是否还在间隔时间内，如果是则不执行，否则继续执行；</li></ul><ul><li>实现如下:<pre><code>const throttle = (method, delay) =&gt; {  var lastTime = 0; // 上一次函数触发的时间  return () =&gt; {      var nowTime = Date.now();      if (nowTime - lastTime &gt; delay) {          method(); // method.apply(this) 看你用不用箭头函数          lastTime = nowTime;      }  }}</code></pre></li></ul><h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><blockquote><p>函数防抖和函数节流 两者非常相似，但还是有些区别，具体区别可以自行百度或者看以下文章；作者博客:<a href="https://wlove-c.github.io/" target="_blank" rel="noopener">Eno</a></p></blockquote><p>文章参考:<br><a href="https://css-tricks.com/debouncing-throttling-explained-examples/" target="_blank" rel="noopener">函数防抖和节流的区别</a><br><a href="https://www.lodashjs.com/docs/latest#_debouncefunc-wait0-options" target="_blank" rel="noopener">lodashjs</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>js基础数组Array的一些特性及方法</title>
       <link href="/2019/06/28/coding-20190629/"/>
       <url>/2019/06/28/coding-20190629/</url>
