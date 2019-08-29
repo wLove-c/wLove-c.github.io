@@ -89,6 +89,26 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-matery
 
+# live2d人偶使用
+live2d:
+  enable: true
+  pluginModelPath: assets/
+  model:
+#    use: live2d-widget-model-epsilon2_1  #模板目录，在node_modules里
+    use: live2d-widget-model-shizuku  #模板目录，在node_modules里
+  display:
+    position: left
+    width: 400
+    height: 800
+    opacity: 0.6
+  mobile:
+    show: true  #是否在手机进行显示
+    scale: 0.5
+  react: {
+    "opacityDefault": 0.5,
+    "opacityOnHover": 0.8
+      }
+
 # Social links
 social:
   GitHub: https://github.com/wLove-c || github
