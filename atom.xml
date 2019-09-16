@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wLove_c.github.io/"/>
-  <updated>2019-08-26T01:53:17.149Z</updated>
+  <updated>2019-09-16T06:45:45.286Z</updated>
   <id>http://wLove_c.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css实现超出几行省略并...</title>
+    <link href="http://wLove_c.github.io/2019/09/16/coding-20190916/"/>
+    <id>http://wLove_c.github.io/2019/09/16/coding-20190916/</id>
+    <published>2019-09-16T06:45:45.268Z</published>
+    <updated>2019-09-16T06:45:45.286Z</updated>
+    
+    <content type="html"><![CDATA[<p>@<a href="css实现超出几行省略并...">TOC</a></p><p><img src="https://user-gold-cdn.xitu.io/2019/9/16/16d38ce4d49c371b?w=7157&amp;h=1717&amp;f=jpeg&amp;s=510219" alt="杀生丸"></p><ul><li><p>单行</p><pre class=" language-css"><code class="language-css"><span class="token property">word-break</span><span class="token punctuation">:</span> break-all<span class="token punctuation">;</span><span class="token property">overflow</span><span class="token punctuation">:</span>hidden<span class="token punctuation">;</span> // 超出的文本隐藏<span class="token property">text-overflow</span><span class="token punctuation">:</span>ellipsis<span class="token punctuation">;</span> // 溢出用省略号显示<span class="token property">white-space</span><span class="token punctuation">:</span>nowrap<span class="token punctuation">;</span> // 溢出不换行</code></pre></li><li><p>两行或多行</p><pre class=" language-css"><code class="language-css"><span class="token property">word-break</span><span class="token punctuation">:</span> break-all<span class="token punctuation">;</span><span class="token property">overflow</span><span class="token punctuation">:</span>hidden<span class="token punctuation">;</span> // 超出的文本隐藏<span class="token property">text-overflow</span><span class="token punctuation">:</span>ellipsis<span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span>-webkit-box<span class="token punctuation">;</span> // 将对象作为弹性伸缩盒子模型显示。<span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span>vertical<span class="token punctuation">;</span>  //从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）<span class="token property">-webkit-line-clamp</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">;</span> // 结合上面两个属性，表示显示的行数。</code></pre><blockquote><p>如果用上了autoprefixer的话，由于它自动补全css前缀，或者删除过时的前缀，导致-webkit-box-orient:vertical; 失效；这时候需要改成如下；</p></blockquote></li></ul><pre class=" language-css"><code class="language-css"><span class="token property">word-break</span><span class="token punctuation">:</span> break-all<span class="token punctuation">;</span><span class="token property">overflow</span><span class="token punctuation">:</span>hidden<span class="token punctuation">;</span> // 超出的文本隐藏<span class="token property">text-overflow</span><span class="token punctuation">:</span>ellipsis<span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span>-webkit-box<span class="token punctuation">;</span> // 将对象作为弹性伸缩盒子模型显示。 <span class="token comment" spellcheck="true">/* autoprefixer: off */</span> <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span>vertical<span class="token punctuation">;</span>  //从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）<span class="token comment" spellcheck="true">/* autoprefixer: on */</span><span class="token property">-webkit-line-clamp</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">;</span> // 结合上面两个属性，表示显示的行数。</code></pre><blockquote><p> 如果用上了autoprefixer的话，也可以在使用autoprefixer的时候进行配置如下:</p></blockquote><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// webpack.config.js</span><span class="token function">postcss</span><span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token function">autoprefixer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> remove<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 关闭autoprefixer的删除前缀功能；</span></code></pre><p>更多关于的配置请转<a href="https://www.npmjs.com/package/autoprefixer" target="_blank" rel="noopener">autoprefixer</a></p><p>作者博客:<a href="https://wlove-c.github.io/" target="_blank" rel="noopener">Eno</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;@&lt;a href=&quot;css实现超出几行省略并...&quot;&gt;TOC&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-gold-cdn.xitu.io/2019/9/16/16d38ce4d49c371b?w=7157&amp;amp;h=1717&amp;amp;f=jpeg
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="http://wLove_c.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="CSS" scheme="http://wLove_c.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>javascript函数防抖和函数节流~</title>
